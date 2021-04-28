@@ -3,6 +3,7 @@
 #include "device_launch_parameters.h"
 #include <stdio.h>
 #include <assert.h>
+
 inline cudaError_t checkCuda(cudaError_t result, const char *error_step)
 {
     if (result != cudaSuccess) {
