@@ -14,5 +14,11 @@ inline cudaError_t checkCuda(cudaError_t result, const char *error_step)
 
 int main()
 {
+    int deviceId;
+    cudaDeviceProp cudaProperties;
+
+    checkCuda(cudaGetDevice(&deviceId), "Get Device ID");
+    checkCuda(cudaGetDeviceProperties(&cudaProperties, deviceId), "Get Device Properties");
+    
     return 0;
 }
