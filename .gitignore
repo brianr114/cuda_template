@@ -4,3 +4,5 @@
 *.ptx
 *.cubin
 *.fatbin
+/CudaTemplate/.vs/CudaTemplate/v16/Browse.VC.db
+/CudaTemplate/.vs/CudaTemplate/v16/Browse.VC.opendb
