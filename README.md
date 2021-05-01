@@ -1,2 +1,2 @@
-# cuda_projects
+# cuda_template
 Projects using CUDA
