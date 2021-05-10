@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\Brian Reiche\Source\Repos\cuda_template\CudaTemplate\x64\Debug\CudaTemplate.exe</FullPath>
+      <FullPath>C:\Users\Brian Reiche\Source\Repos\cuda_template\CudaTemplate\x64\Release\CudaTemplate.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
