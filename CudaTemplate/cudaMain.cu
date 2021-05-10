@@ -13,6 +13,8 @@ inline cudaError_t checkCuda(cudaError_t result, const char *error_step)
     return result;
 }
 
+void calc_concurrent_stream_addr(unsigned long long N, unsigned long long num_streams, unsigned long long iterator, unsigned long long data_size, unsigned long long& lower, unsigned long long& width);
+
 int main()
 {
     int deviceId;
@@ -20,6 +22,14 @@ int main()
 
     checkCuda(cudaGetDevice(&deviceId), "Get Device ID");
     checkCuda(cudaGetDeviceProperties(&cudaProperties, deviceId), "Get Device Properties");
-    
+
     return 0;
+}
+
+void calc_concurrent_stream_addr(unsigned long long N, unsigned long long num_streams, unsigned long long iterator, unsigned long long data_size, unsigned long long& lower, unsigned long long& width)
+{
+    unsigned long long chunk_size = (N + num_streams - 1) / num_streams;
+    lower = chunk_size * iterator; 
+    unsigned long long upper = min(lower + chunk_size, N);
+    width = (upper - lower) * data_size;
 }
