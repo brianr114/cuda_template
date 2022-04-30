@@ -157,6 +157,9 @@
   <ItemGroup>
     <CudaCompile Include="cudaMain.cu" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cuda_helper.cuh" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 11.3.targets" />

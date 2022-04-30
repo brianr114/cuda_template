@@ -3,33 +3,23 @@
 #include "device_launch_parameters.h"
 #include <stdio.h>
 #include <assert.h>
+#include <iostream>
+#include <cstdint>
 
-inline cudaError_t checkCuda(cudaError_t result, const char *error_step)
-{
-    if (result != cudaSuccess) {
-        printf("CUDA Step: %s\nCUDA Runtime Error: %s\n", error_step, cudaGetErrorString(result));
-        assert(result == cudaSuccess);
-    }
-    return result;
-}
+#include "cuda_helper.cuh"
 
-void calc_concurrent_stream_addr(unsigned long long N, unsigned long long num_streams, unsigned long long iterator, unsigned long long data_size, unsigned long long& lower, unsigned long long& width);
+#define NUM_GPUS 1
 
 int main()
 {
-    int deviceId;
+    int deviceId{ 0 };
     cudaDeviceProp cudaProperties;
 
-    checkCuda(cudaGetDevice(&deviceId), "Get Device ID");
-    checkCuda(cudaGetDeviceProperties(&cudaProperties, deviceId), "Get Device Properties");
+    for (int i = 0; i < NUM_GPUS; i++) {
+        checkCuda(cudaSetDevice(i), "Set Device");
+        checkCuda(cudaGetDeviceProperties(&cudaProperties, i), "Get Device Properties");
+        std::cout << cudaProperties.name << std::endl;
+    }
 
     return 0;
-}
-
-void calc_concurrent_stream_addr(unsigned long long N, unsigned long long num_streams, unsigned long long iterator, unsigned long long data_size, unsigned long long& lower, unsigned long long& width)
-{
-    unsigned long long chunk_size = (N + num_streams - 1) / num_streams;
-    lower = chunk_size * iterator; 
-    unsigned long long upper = min(lower + chunk_size, N);
-    width = (upper - lower) * data_size;
 }
