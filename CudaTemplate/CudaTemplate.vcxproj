@@ -156,9 +156,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <CudaCompile Include="cudaMain.cu" />
+    <CudaCompile Include="cuda_helper.cu" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConcurrentStreamParams.cuh" />
     <ClInclude Include="cuda_helper.cuh" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ConcurrentStreamParams.cu" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -7,12 +7,12 @@
 #include <cstdint>
 
 #include "cuda_helper.cuh"
+#include "ConcurrentStreamParams.cuh"
 
 #define NUM_GPUS 1
 
 int main()
 {
-    int deviceId{ 0 };
     cudaDeviceProp cudaProperties;
 
     for (int i = 0; i < NUM_GPUS; i++) {
