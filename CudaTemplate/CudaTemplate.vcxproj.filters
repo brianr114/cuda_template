@@ -18,5 +18,21 @@
     <CudaCompile Include="cudaMain.cu">
       <Filter>Source Files</Filter>
     </CudaCompile>
+    <CudaCompile Include="cuda_helper.cu">
+      <Filter>Source Files</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ConcurrentStreamParams.cuh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cuda_helper.cuh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ConcurrentStreamParams.cu">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
